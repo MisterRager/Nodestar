@@ -20,16 +20,18 @@ partial_rainbows = rainbows % 1
 
 apa102.init()
 
+pattern = string.rep(
+	rainbow_pattern,
+	rainbows - partial_rainbows
+)..string.sub(
+	rainbow_pattern,
+	1,
+	partial_rainbows * rainbow_count
+)
+
 print(
 	apa102.write(
-		0xff,
-		string.rep(
-			rainbow_pattern,
-			rainbows - partial_rainbows
-		)..string.sub(
-			rainbow_pattern,
-			1,
-			partial_rainbows * rainbow_count
-		)
+		0xf0,
+		pattern
 	)
 )
