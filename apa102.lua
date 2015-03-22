@@ -24,15 +24,16 @@ end
 function apa102.write(brightness, data)
 	local led_count = string.len(data) / 3
 	local output_buffer = ""
-	local i = 0
 	local bright_char = string.char(brightness)
 
-	for i=1,led_count do output_buffer =  
-		output_buffer..bright_char..string.sub(
-			data,
-			i * 3 + 1, 
-			(i * 3) + 3
-		)
+	for i=0,(led_count - 1) do
+		output_buffer = output_buffer..
+			bright_char..
+			string.sub(
+				data,
+				(i * 3) + 1, 
+				(i * 3) + 3
+			)
 	end
 
 	return spi.send(
