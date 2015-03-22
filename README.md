@@ -11,6 +11,7 @@ apa102.write(0xff, string.chr(0x00, 0x00, 0xff))
 `apa102.write(int brightness, string bytes)` sends out bgr pixels to the apa102 strip, applying a global brightness. The brightness has 5 bits of precision - the three preceding bits have to all be set high (1's). This function interleaves the global brightness value with the color data and pushes it out over spi
 
 PixelController server
+
 It's a bit laggy, but to receive data from PixelController as a "udp" server, do like this:
 
 ```
